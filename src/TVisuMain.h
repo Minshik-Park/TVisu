@@ -2,29 +2,29 @@
 
 #include "Common\StepTimer.h"
 #include "Common\DeviceResources.h"
-#include "Content\Sample3DSceneRenderer.h"
+#include "Content\Cube.h"
 
 // Renders Direct3D content on the screen.
 namespace TVisu
 {
-	class TVisuMain
-	{
-	public:
-		TVisuMain();
-		void CreateRenderers(const std::shared_ptr<DX::DeviceResources>& deviceResources);
-		void Update();
-		bool Render();
+    class TVisuMain
+    {
+    public:
+        TVisuMain();
+        void CreateRenderers(const std::shared_ptr<DX::DeviceResources>& deviceResources);
+        void Update();
+        bool Render();
 
-		void OnWindowSizeChanged();
-		void OnSuspending();
-		void OnResuming();
-		void OnDeviceRemoved();
+        void OnWindowSizeChanged();
+        void OnSuspending();
+        void OnResuming();
+        void OnDeviceRemoved();
 
-	private:
-		// TODO: Replace with your own content renderers.
-		std::unique_ptr<Sample3DSceneRenderer> m_sceneRenderer;
+    private:
+        // TODO: Replace with your own content renderers.
+        std::unique_ptr<Cube> m_sceneRenderer;
 
-		// Rendering loop timer.
-		DX::StepTimer m_timer;
-	};
+        // Rendering loop timer.
+        DX::StepTimer m_timer;
+    };
 }

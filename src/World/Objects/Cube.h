@@ -1,8 +1,8 @@
 ﻿#pragma once
 
-#include "..\Common\DeviceResources.h"
-#include "ShaderStructures.h"
-#include "..\Common\StepTimer.h"
+#include "Graphics\DirectX\DeviceResources.h"
+#include "Graphics\DirectX\ShaderStructures.h"
+#include "Common\StepTimer.h"
 
 namespace TVisu
 {

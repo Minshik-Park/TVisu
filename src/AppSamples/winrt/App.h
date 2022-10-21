@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "pch.h"
-#include "Common\DeviceResources.h"
+#include "Graphics\DirectX\DeviceResources.h"
 #include "TVisuMain.h"
 
 namespace TVisu

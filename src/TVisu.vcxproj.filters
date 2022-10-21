@@ -8,39 +8,27 @@
       <UniqueIdentifier>749aec20-24a6-4f3f-b1c5-459078c2dfe6</UniqueIdentifier>
       <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
     </Filter>
-    <Filter Include="Content">
-      <UniqueIdentifier>3f81d56f-6ab6-4f1d-9c13-d10b2aac9cb9</UniqueIdentifier>
+    <Filter Include="AppSamples">
+      <UniqueIdentifier>{5226045b-d68c-4140-8a13-a7c90c8c62e4}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="Common\d3dx12.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Common\DirectXHelper.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Common\StepTimer.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Common\DeviceResources.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClCompile Include="Common\DeviceResources.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClInclude Include="Content\Cube.h">
-      <Filter>Content</Filter>
-    </ClInclude>
-    <ClInclude Include="Content\ShaderStructures.h">
-      <Filter>Content</Filter>
-    </ClInclude>
-    <ClCompile Include="Content\Cube.cpp">
-      <Filter>Content</Filter>
-    </ClCompile>
-    <FxCompile Include="Content\SamplePixelShader.hlsl">
-      <Filter>Content</Filter>
-    </FxCompile>
-    <FxCompile Include="Content\SampleVertexShader.hlsl">
-      <Filter>Content</Filter>
-    </FxCompile>
+    <Filter Include="AppSamples\winrt">
+      <UniqueIdentifier>{b1593bd1-1ebe-4821-ac26-3792fa0fb8dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{7b44ed9f-bdb6-4295-b4a4-c13bf844085a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\DirectX">
+      <UniqueIdentifier>{6f9bf0f9-9d70-4718-86f5-67d09a932e0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\DirectX\Shaders">
+      <UniqueIdentifier>{cfe8b3c6-bdf7-4b80-bf9a-d12663d6b15f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="World">
+      <UniqueIdentifier>{5680a4e8-9eaa-4fe1-866a-04c2fd8c1e1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="World\Objects">
+      <UniqueIdentifier>{bb4ca6c5-dbd8-45bb-a161-fe96cc4681e6}</UniqueIdentifier>
+    </Filter>
     <Image Include="Assets\LockScreenLogo.scale-200.png">
       <Filter>Assets</Filter>
     </Image>
@@ -64,19 +52,59 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="App.cpp" />
-    <ClCompile Include="TVisuMain.cpp" />
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="AppSamples\winrt\App.cpp">
+      <Filter>AppSamples\winrt</Filter>
+    </ClCompile>
+    <ClCompile Include="AppSamples\winrt\TVisuMain.cpp">
+      <Filter>AppSamples\winrt</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\DirectX\DeviceResources.cpp">
+      <Filter>Graphics\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="World\Objects\Cube.cpp">
+      <Filter>World\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="App.h" />
-    <ClInclude Include="TVisuMain.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="AppSamples\winrt\App.h">
+      <Filter>AppSamples\winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="AppSamples\winrt\TVisuMain.h">
+      <Filter>AppSamples\winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\StepTimer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\DirectX\d3dx12.h">
+      <Filter>Graphics\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\DirectX\DeviceResources.h">
+      <Filter>Graphics\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\DirectX\DirectXHelper.h">
+      <Filter>Graphics\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\DirectX\ShaderStructures.h">
+      <Filter>Graphics\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="World\Objects\Cube.h">
+      <Filter>World\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Graphics\DirectX\Shaders\SamplePixelShader.hlsl">
+      <Filter>Graphics\DirectX\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Graphics\DirectX\Shaders\SampleVertexShader.hlsl">
+      <Filter>Graphics\DirectX\Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

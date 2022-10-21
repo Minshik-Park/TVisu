@@ -1,9 +1,7 @@
 ﻿#include "pch.h"
 #include "Cube.h"
 
-#include "..\Common\DirectXHelper.h"
-#include <ppltasks.h>
-#include <synchapi.h>
+#include "Graphics\DirectX\DirectXHelper.h"
 
 using namespace TVisu;
 

@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "TVisuMain.h"
-#include "Common\DirectXHelper.h"
+#include "Graphics\DirectX\DirectXHelper.h"
 
 using namespace TVisu;
 

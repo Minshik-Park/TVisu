@@ -1,8 +1,8 @@
 ﻿#pragma once
 
 #include "Common\StepTimer.h"
-#include "Common\DeviceResources.h"
-#include "Content\Cube.h"
+#include "Graphics\DirectX\DeviceResources.h"
+#include "World\Objects\Cube.h"
 
 // Renders Direct3D content on the screen.
 namespace TVisu

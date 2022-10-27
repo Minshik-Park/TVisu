@@ -29,6 +29,8 @@ result_t TVisuMain::Initialize()
 
     IF_FAILED_EXIT(m_spWorld->RegisterState(spCubeState));
 
+    IF_FAILED_EXIT(m_spWorld->StateTransitTo(spCubeState->Id()));
+
 Exit:
     return result;
 }

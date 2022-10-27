@@ -78,7 +78,7 @@ void App::Run()
 
             PIXBeginEvent(commandQueue, 0, L"Render");
             {
-                if (m_main->Render())
+                if (Succeeded(m_main->Render()))
                 {
                     GetDeviceResources()->Present();
                 }

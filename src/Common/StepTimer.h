@@ -1,5 +1,5 @@
 ﻿#pragma once
-
+#include "Common/TVisu.h"
 #include <wrl.h>
 
 namespace DX
@@ -79,8 +79,10 @@ namespace DX
 
         // Update timer state, calling the specified Update function the appropriate number of times.
         template<typename TUpdate>
-        void Tick(const TUpdate& update)
+        TVisu::result_t Tick(const TUpdate& update)
         {
+            TVisu::result_t result = TVisu::ResultCode::success;
+
             // Query the current time.
             LARGE_INTEGER currentTime;
 
@@ -131,7 +133,7 @@ namespace DX
                     m_leftOverTicks -= m_targetElapsedTicks;
                     m_frameCount++;
 
-                    update();
+                    IF_FAILED_EXIT(update());
                 }
             }
             else
@@ -142,7 +144,7 @@ namespace DX
                 m_leftOverTicks = 0;
                 m_frameCount++;
 
-                update();
+                IF_FAILED_EXIT(update());
             }
 
             // Track the current framerate.
@@ -157,6 +159,9 @@ namespace DX
                 m_framesThisSecond = 0;
                 m_qpcSecondCounter %= m_qpcFrequency.QuadPart;
             }
+
+        Exit:
+            return result;
         }
 
     private:

@@ -15,5 +15,13 @@ namespace TVisu
     {
         DirectX::XMFLOAT3 pos;
         DirectX::XMFLOAT3 color;
+
+        VertexPositionColor() = default;
+
+        VertexPositionColor(const VertexPositionColor&) = default;
+        VertexPositionColor& operator=(const VertexPositionColor&) = default;
+
+        VertexPositionColor(VertexPositionColor&&) = default;
+        VertexPositionColor& operator=(VertexPositionColor&&) = default;
     };
 }

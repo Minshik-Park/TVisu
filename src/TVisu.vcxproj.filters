@@ -23,10 +23,10 @@
     <Filter Include="Graphics\DirectX\Shaders">
       <UniqueIdentifier>{cfe8b3c6-bdf7-4b80-bf9a-d12663d6b15f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="World">
+    <Filter Include="Universe">
       <UniqueIdentifier>{5680a4e8-9eaa-4fe1-866a-04c2fd8c1e1b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="World\Objects">
+    <Filter Include="Universe\Objects">
       <UniqueIdentifier>{bb4ca6c5-dbd8-45bb-a161-fe96cc4681e6}</UniqueIdentifier>
     </Filter>
     <Image Include="Assets\LockScreenLogo.scale-200.png">
@@ -50,6 +50,12 @@
     <Image Include="Assets\Wide310x150Logo.scale-200.png">
       <Filter>Assets</Filter>
     </Image>
+    <Filter Include="AppFramework">
+      <UniqueIdentifier>{61512590-e04f-4dc0-b11f-8329bbfdef98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AppFramework\winrt">
+      <UniqueIdentifier>{14001930-018a-4c01-98b0-0c184b0b6c7d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -62,8 +68,32 @@
     <ClCompile Include="Graphics\DirectX\DeviceResources.cpp">
       <Filter>Graphics\DirectX</Filter>
     </ClCompile>
-    <ClCompile Include="World\Objects\Cube.cpp">
-      <Filter>World\Objects</Filter>
+    <ClCompile Include="Universe\Objects\Cube.cpp">
+      <Filter>Universe\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="AppFramework\winrt\ApplicationBase.cpp">
+      <Filter>AppFramework\winrt</Filter>
+    </ClCompile>
+    <ClCompile Include="Universe\Scene.cpp">
+      <Filter>Universe</Filter>
+    </ClCompile>
+    <ClCompile Include="Universe\World.cpp">
+      <Filter>Universe</Filter>
+    </ClCompile>
+    <ClCompile Include="Universe\StateBase.cpp">
+      <Filter>Universe</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Debug.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="AppSamples\winrt\CubeState.cpp">
+      <Filter>AppSamples\winrt</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\RenderingContext.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\DirectX\RenderingContextDX12.cpp">
+      <Filter>Graphics\DirectX</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,8 +119,38 @@
     <ClInclude Include="Graphics\DirectX\ShaderStructures.h">
       <Filter>Graphics\DirectX</Filter>
     </ClInclude>
-    <ClInclude Include="World\Objects\Cube.h">
-      <Filter>World\Objects</Filter>
+    <ClInclude Include="Universe\Objects\Cube.h">
+      <Filter>Universe\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="AppFramework\winrt\ApplicationBase.h">
+      <Filter>AppFramework\winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Universe\Scene.h">
+      <Filter>Universe</Filter>
+    </ClInclude>
+    <ClInclude Include="Universe\World.h">
+      <Filter>Universe</Filter>
+    </ClInclude>
+    <ClInclude Include="Universe\StateBase.h">
+      <Filter>Universe</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\ResultCode.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Debug.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\TVisu.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="AppSamples\winrt\CubeState.h">
+      <Filter>AppSamples\winrt</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\RenderingContext.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\DirectX\RenderingContextDX12.h">
+      <Filter>Graphics\DirectX</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

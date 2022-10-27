@@ -9,6 +9,8 @@ using namespace DirectX;
 using namespace winrt;
 using namespace winrt::Windows::Storage;
 
+#define USE_VEC 1
+
 // Indices into the application state map.
 winrt::hstring AngleKey(L"Angle");
 winrt::hstring TrackingKey(L"Tracking");
@@ -103,6 +105,21 @@ winrt::fire_and_forget Cube::CreateDeviceDependentResources()
         NAME_D3D12_OBJECT(m_commandList);
 
         // Cube vertices. Each vertex has a position and a color.
+#ifdef USE_VEC
+        std::vector<VertexPositionColor> cubeVertices =
+        {
+            { XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 0.0f, 0.0f) },
+            { XMFLOAT3(-0.5f, -0.5f,  0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f) },
+            { XMFLOAT3(-0.5f,  0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 0.0f) },
+            { XMFLOAT3(-0.5f,  0.5f,  0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f) },
+            { XMFLOAT3( 0.5f, -0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f) },
+            { XMFLOAT3( 0.5f, -0.5f,  0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f) },
+            { XMFLOAT3( 0.5f,  0.5f, -0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f) },
+            { XMFLOAT3( 0.5f,  0.5f,  0.5f), XMFLOAT3(1.0f, 1.0f, 1.0f) },
+        };
+
+        const UINT vertexBufferSize = (UINT)(sizeof(VertexPositionColor) * cubeVertices.size());
+#else
         VertexPositionColor cubeVertices[] =
         {
             { XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 0.0f, 0.0f) },
@@ -116,7 +133,7 @@ winrt::fire_and_forget Cube::CreateDeviceDependentResources()
         };
 
         const UINT vertexBufferSize = sizeof(cubeVertices);
-
+#endif
         // Create the vertex buffer resource in the GPU's default heap and copy vertex data into it using the upload heap.
         // The upload resource must not be released until after the GPU has finished using it.
         com_ptr<ID3D12Resource> vertexBufferUpload;
@@ -145,7 +162,11 @@ winrt::fire_and_forget Cube::CreateDeviceDependentResources()
         // Upload the vertex buffer to the GPU.
         {
             D3D12_SUBRESOURCE_DATA vertexData = {};
+#ifdef USE_VEC
+            vertexData.pData = reinterpret_cast<BYTE*>(cubeVertices.data());
+#else
             vertexData.pData = reinterpret_cast<BYTE*>(cubeVertices);
+#endif
             vertexData.RowPitch = vertexBufferSize;
             vertexData.SlicePitch = vertexData.RowPitch;
 
@@ -159,6 +180,30 @@ winrt::fire_and_forget Cube::CreateDeviceDependentResources()
         // Load mesh indices. Each trio of indices represents a triangle to be rendered on the screen.
         // For example: 0,2,1 means that the vertices with indexes 0, 2 and 1 from the vertex buffer compose the
         // first triangle of this mesh.
+#ifdef USE_VEC
+        std::vector<unsigned short> cubeIndices =
+        {
+            0, 2, 1, // -x
+            1, 2, 3,
+
+            4, 5, 6, // +x
+            5, 7, 6,
+
+            0, 1, 5, // -y
+            0, 5, 4,
+
+            2, 6, 7, // +y
+            2, 7, 3,
+
+            0, 4, 6, // -z
+            0, 6, 2,
+
+            1, 3, 7, // +z
+            1, 7, 5,
+        };
+
+        const UINT indexBufferSize = (UINT)(sizeof(short) * cubeIndices.size());
+#else
         unsigned short cubeIndices[] =
         {
             0, 2, 1, // -x
@@ -181,7 +226,7 @@ winrt::fire_and_forget Cube::CreateDeviceDependentResources()
         };
 
         const UINT indexBufferSize = sizeof(cubeIndices);
-
+#endif
         // Create the index buffer resource in the GPU's default heap and copy index data into it using the upload heap.
         // The upload resource must not be released until after the GPU has finished using it.
         com_ptr<ID3D12Resource> indexBufferUpload;
@@ -208,7 +253,7 @@ winrt::fire_and_forget Cube::CreateDeviceDependentResources()
         // Upload the index buffer to the GPU.
         {
             D3D12_SUBRESOURCE_DATA indexData = {};
-            indexData.pData = reinterpret_cast<BYTE*>(cubeIndices);
+            indexData.pData = reinterpret_cast<BYTE*>(cubeIndices.data());
             indexData.RowPitch = indexBufferSize;
             indexData.SlicePitch = indexData.RowPitch;
 
@@ -272,10 +317,18 @@ winrt::fire_and_forget Cube::CreateDeviceDependentResources()
         // Create vertex/index buffer views.
         m_vertexBufferView.BufferLocation = m_vertexBuffer->GetGPUVirtualAddress();
         m_vertexBufferView.StrideInBytes = sizeof(VertexPositionColor);
+#ifdef USE_VEC
+        m_vertexBufferView.SizeInBytes = vertexBufferSize;
+#else
         m_vertexBufferView.SizeInBytes = sizeof(cubeVertices);
+#endif
 
         m_indexBufferView.BufferLocation = m_indexBuffer->GetGPUVirtualAddress();
+#ifdef USE_VEC
+        m_indexBufferView.SizeInBytes = indexBufferSize;
+#else
         m_indexBufferView.SizeInBytes = sizeof(cubeIndices);
+#endif
         m_indexBufferView.Format = DXGI_FORMAT_R16_UINT;
 
         // Wait for the command list to finish executing; the vertex/index buffers need to be uploaded to the GPU before the upload resources go out of scope.

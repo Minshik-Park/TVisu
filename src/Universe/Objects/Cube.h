@@ -1,8 +1,9 @@
 ﻿#pragma once
 
-#include "Graphics\DirectX\DeviceResources.h"
-#include "Graphics\DirectX\ShaderStructures.h"
-#include "Common\StepTimer.h"
+#include "Graphics/RenderingContext.h"
+#include "Graphics/DirectX/DeviceResources.h"
+#include "Graphics/DirectX/ShaderStructures.h"
+#include "Common/StepTimer.h"
 
 namespace TVisu
 {
@@ -54,6 +55,8 @@ namespace TVisu
         float   m_radiansPerSecond;
         float   m_angle;
         bool    m_tracking;
+
+        std::shared_ptr<TVisu::Graphics::RenderingContext> m_spRenderingContext;
     };
 }
 

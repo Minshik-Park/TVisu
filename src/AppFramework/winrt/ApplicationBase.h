@@ -1,16 +1,22 @@
 ﻿#pragma once
-#include "AppFramework/winrt/ApplicationBase.h"
-#include "Graphics\DirectX\DeviceResources.h"
-#include "Universe\Objects\Cube.h"
+#include "Common/TVisu.h"
+#include "Common/StepTimer.h"
+#include "Universe/World.h"
+#include "Graphics/DirectX/DeviceResources.h"
+#include "Universe/Objects/Cube.h"
 
 // Renders Direct3D content on the screen.
-namespace TVisu
+namespace TVisu::winRT
 {
-    class TVisuMain : public TVisu::winRT::ApplicationBase
+    class ApplicationBase
     {
     public:
-        TVisuMain();
+        ApplicationBase();
+        virtual ~ApplicationBase();
+
         virtual void CreateRenderers(const std::shared_ptr<DX::DeviceResources>& deviceResources);
+        result_t Update();
+        result_t Render();
 
         virtual void OnWindowSizeChanged();
         virtual void OnSuspending();
@@ -21,8 +27,11 @@ namespace TVisu
         virtual result_t DoUpdate();
         virtual result_t DoRender();
 
-    private:
+    protected:
         // TODO: Replace with your own content renderers.
-        std::unique_ptr<Cube> m_sceneRenderer;
+        std::unique_ptr<TVisu::Universe::World> m_spWorld;
+
+        // Rendering loop timer.
+        DX::StepTimer m_timer;
     };
 }

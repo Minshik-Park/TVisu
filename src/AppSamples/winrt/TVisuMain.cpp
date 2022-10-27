@@ -27,29 +27,36 @@ void TVisuMain::CreateRenderers(const std::shared_ptr<DX::DeviceResources>& devi
 }
 
 // Updates the application state once per frame.
-void TVisuMain::Update()
+result_t TVisuMain::DoUpdate()
 {
-    // Update scene objects.
-    m_timer.Tick([&]()
-    {
-        // TODO: Replace this with your app's content update functions.
-        m_sceneRenderer->Update(m_timer);
-    });
+    result_t result = ResultCode::success;
+
+    IF_FAILED_EXIT(ApplicationBase::DoUpdate());
+
+    // TODO: Replace this with your app's content update functions.
+    m_sceneRenderer->Update(m_timer);
+
+Exit:
+    return result;
 }
 
 // Renders the current frame according to the current application state.
 // Returns true if the frame was rendered and is ready to be displayed.
-bool TVisuMain::Render()
+result_t TVisuMain::DoRender()
 {
-    // Don't try to render anything before the first Update.
-    if (m_timer.GetFrameCount() == 0)
-    {
-        return false;
-    }
+    result_t result = ResultCode::success;
+
+    IF_FAILED_EXIT(ApplicationBase::DoRender());
 
     // Render the scene objects.
     // TODO: Replace this with your app's content rendering functions.
-    return m_sceneRenderer->Render();
+    if (!m_sceneRenderer->Render())
+    {
+        result = ResultCode::failed;
+    }
+
+Exit:
+    return result;
 }
 
 // Updates application state when the window's size changes (e.g. device orientation change)

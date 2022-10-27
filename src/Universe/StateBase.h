@@ -10,7 +10,7 @@ namespace TVisu::Universe
         StateBase(const uint32_t id);
         virtual ~StateBase();
 
-        uint32_t Id() { return m_id; }
+        const uint32_t Id() const { return m_id; }
 
         virtual result_t Enter() = 0;
         virtual result_t Exit() = 0;
@@ -19,7 +19,9 @@ namespace TVisu::Universe
         virtual result_t Render() = 0;
 
     protected:
-        uint32_t m_id;
         std::shared_ptr<Scene> m_spScene;
+
+    private:
+        uint32_t m_id;
     };
 }

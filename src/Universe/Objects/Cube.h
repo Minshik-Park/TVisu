@@ -24,6 +24,8 @@ namespace TVisu
         void StopTracking();
         bool IsTracking() { return m_tracking; }
 
+        std::shared_ptr<TVisu::Graphics::RenderingContext>& RenderingContext() { return m_spRenderingContext; }
+
     private:
         void LoadState();
         void Rotate(float radians);

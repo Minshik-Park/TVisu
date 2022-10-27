@@ -3,6 +3,9 @@
 
 namespace TVisu
 {
+    /// <summary>
+    /// Sample state of rendering single rotating cube
+    /// </summary>
     class CubeState : public Universe::StateBase
     {
     public:

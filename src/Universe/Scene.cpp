@@ -8,6 +8,11 @@ Scene::~Scene()
 {
 }
 
+result_t Scene::Initialize()
+{
+    return ResultCode::success;
+}
+
 result_t Scene::Update()
 {
     return ResultCode::success;

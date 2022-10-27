@@ -14,7 +14,17 @@ CubeState::~CubeState()
 
 result_t CubeState::Enter()
 {
-    return ResultCode::success;
+    result_t result = ResultCode::success;
+
+    if (m_spScene == nullptr)
+    {
+        m_spScene = std::make_shared<TVisu::Universe::Scene>();
+    }
+
+    IF_FAILED_EXIT(m_spScene->Initialize());
+
+Exit:
+    return result;
 }
 
 result_t CubeState::Exit()
@@ -24,10 +34,20 @@ result_t CubeState::Exit()
 
 result_t CubeState::Update()
 {
-    return ResultCode::success;
+    result_t result = ResultCode::success;
+
+    IF_FAILED_EXIT(m_spScene->Update());
+
+Exit:
+    return result;
 }
 
 result_t CubeState::Render()
 {
-    return ResultCode::success;
+    result_t result = ResultCode::success;
+
+    IF_FAILED_EXIT(m_spScene->Render());
+
+Exit:
+    return result;
 }

@@ -9,6 +9,8 @@ namespace TVisu::Universe
         Scene() = default;
         virtual ~Scene();
 
+        result_t Initialize();
+
         result_t Update();
         result_t Render();
 

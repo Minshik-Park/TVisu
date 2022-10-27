@@ -23,11 +23,22 @@ ApplicationBase::~ApplicationBase()
 {
 }
 
+result_t ApplicationBase::Initialize()
+{
+    result_t result = ResultCode::success;
+    IF_FALSE_EXIT(m_spWorld == nullptr, ResultCode::alreadyInitialized);
+
+    // Create world and register states
+    m_spWorld = std::make_unique<World>();
+    IF_NULL_EXIT(m_spWorld, ResultCode::outOfMemory);
+
+Exit:
+    return result;
+}
+
 // Creates and initializes the renderers.
 void ApplicationBase::CreateRenderers(const std::shared_ptr<DX::DeviceResources>& deviceResources)
 {
-    // Create world and register states
-    m_spWorld = std::make_unique<World>();
 }
 
 // Updates the application state once per frame.

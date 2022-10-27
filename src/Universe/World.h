@@ -18,15 +18,17 @@ namespace TVisu::Universe
         virtual ~World();
 
         // Manage State
-        result_t RegisterState(const uint32_t stateId, std::shared_ptr<StateBase>& state);
-        result_t StateTransitTo(const uint32_t stateId);
+        result_t RegisterState(std::shared_ptr<StateBase>& state);
+        result_t DeregisterState(const uint32_t id);
+        result_t StateTransitTo(const int32_t stateId);
 
         // Manage main loop
         result_t Update();
         result_t Render();
 
     private:
-        std::map<uint32_t, std::shared_ptr<StateBase>>  m_states;
-        uint32_t                                        m_currentState;
+        std::map<int32_t, std::shared_ptr<StateBase>>   m_states;
+        int32_t                                         m_currentStateIndex = -1;
+        std::shared_ptr<StateBase>                      m_spCurrentState;
     };
 }

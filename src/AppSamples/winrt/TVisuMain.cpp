@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "TVisuMain.h"
+#include "CubeState.h"
 #include "Graphics\DirectX\DirectXHelper.h"
 
 using namespace TVisu;
@@ -16,6 +17,22 @@ TVisuMain::TVisuMain()
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
     */
 }
+
+result_t TVisuMain::Initialize()
+{
+    result_t result = ResultCode::success;
+    std::shared_ptr<TVisu::Universe::StateBase> spCubeState;
+
+    IF_FAILED_EXIT(ApplicationBase::Initialize());
+
+    spCubeState = std::make_shared<CubeState>(0);
+
+    IF_FAILED_EXIT(m_spWorld->RegisterState(spCubeState));
+
+Exit:
+    return result;
+}
+
 
 // Creates and initializes the renderers.
 void TVisuMain::CreateRenderers(const std::shared_ptr<DX::DeviceResources>& deviceResources)

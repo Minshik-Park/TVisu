@@ -57,6 +57,8 @@ void App::Load(hstring const &entryPoint)
     if (m_main == nullptr)
     {
         m_main = std::unique_ptr<TVisuMain>(new TVisuMain());
+
+        IF_FAILED_THROW(m_main->Initialize());
     }
 }
 

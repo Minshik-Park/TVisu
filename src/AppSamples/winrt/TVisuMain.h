@@ -10,16 +10,17 @@ namespace TVisu
     {
     public:
         TVisuMain();
-        virtual void CreateRenderers(const std::shared_ptr<DX::DeviceResources>& deviceResources);
+        virtual result_t Initialize() override;
+        virtual void CreateRenderers(const std::shared_ptr<DX::DeviceResources>& deviceResources) override;
 
-        virtual void OnWindowSizeChanged();
-        virtual void OnSuspending();
-        virtual void OnResuming();
-        virtual void OnDeviceRemoved();
+        virtual void OnWindowSizeChanged() override;
+        virtual void OnSuspending() override;
+        virtual void OnResuming() override;
+        virtual void OnDeviceRemoved() override;
 
     protected:
-        virtual result_t DoUpdate();
-        virtual result_t DoRender();
+        virtual result_t DoUpdate() override;
+        virtual result_t DoRender() override;
 
     private:
         // TODO: Replace with your own content renderers.

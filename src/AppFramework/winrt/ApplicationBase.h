@@ -14,6 +14,7 @@ namespace TVisu::winRT
         ApplicationBase();
         virtual ~ApplicationBase();
 
+        virtual result_t Initialize();
         virtual void CreateRenderers(const std::shared_ptr<DX::DeviceResources>& deviceResources);
         result_t Update();
         result_t Render();

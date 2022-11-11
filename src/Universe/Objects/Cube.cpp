@@ -4,6 +4,7 @@
 #include "Graphics\DirectX\DirectXHelper.h"
 
 using namespace TVisu;
+using namespace TVisu::Universe;
 
 using namespace DirectX;
 using namespace winrt;

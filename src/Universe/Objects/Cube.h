@@ -5,7 +5,7 @@
 #include "Graphics/DirectX/ShaderStructures.h"
 #include "Common/StepTimer.h"
 
-namespace TVisu
+namespace TVisu::Universe
 {
     // This sample renderer instantiates a basic rendering pipeline.
     class Cube

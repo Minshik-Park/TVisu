@@ -4,6 +4,7 @@
 #include "Graphics\DirectX\DirectXHelper.h"
 
 using namespace TVisu;
+using namespace TVisu::Universe;
 
 // The DirectX 12 Application template is documented at https://go.microsoft.com/fwlink/?LinkID=613670&clcid=0x409
 
@@ -18,6 +19,7 @@ TVisuMain::TVisuMain()
     */
 }
 
+// Initialize sub-system
 result_t TVisuMain::Initialize()
 {
     result_t result = ResultCode::success;

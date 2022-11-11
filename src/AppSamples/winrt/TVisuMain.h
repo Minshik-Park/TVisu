@@ -24,6 +24,6 @@ namespace TVisu
 
     private:
         // TODO: Replace with your own content renderers.
-        std::unique_ptr<Cube> m_sceneRenderer;
+        std::unique_ptr<TVisu::Universe::Cube> m_sceneRenderer;
     };
 }

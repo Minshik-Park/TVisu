@@ -222,6 +222,7 @@
     <ClInclude Include="AppSamples\winrt\CubeState.h" />
     <ClInclude Include="AppSamples\winrt\TVisuMain.h" />
     <ClInclude Include="Common\Debug.h" />
+    <ClInclude Include="Common\Math.h" />
     <ClInclude Include="Common\ResultCode.h" />
     <ClInclude Include="Common\StepTimer.h" />
     <ClInclude Include="Common\TVisu.h" />
@@ -233,6 +234,7 @@
     <ClInclude Include="Graphics\RenderingContext.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Universe\Objects\Cube.h" />
+    <ClInclude Include="Universe\Objects\Object.h" />
     <ClInclude Include="Universe\Scene.h" />
     <ClInclude Include="Universe\StateBase.h" />
     <ClInclude Include="Universe\World.h" />
@@ -243,6 +245,7 @@
     <ClCompile Include="AppSamples\winrt\CubeState.cpp" />
     <ClCompile Include="AppSamples\winrt\TVisuMain.cpp" />
     <ClCompile Include="Common\Debug.cpp" />
+    <ClCompile Include="Common\Math.cpp" />
     <ClCompile Include="Graphics\DirectX\DeviceResources.cpp" />
     <ClCompile Include="Graphics\DirectX\RenderingContextDX12.cpp" />
     <ClCompile Include="Graphics\RenderingContext.cpp" />
@@ -250,6 +253,7 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Universe\Objects\Cube.cpp" />
+    <ClCompile Include="Universe\Objects\Object.cpp" />
     <ClCompile Include="Universe\Scene.cpp" />
     <ClCompile Include="Universe\StateBase.cpp" />
     <ClCompile Include="Universe\World.cpp" />

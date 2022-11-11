@@ -95,6 +95,12 @@
     <ClCompile Include="Graphics\DirectX\RenderingContextDX12.cpp">
       <Filter>Graphics\DirectX</Filter>
     </ClCompile>
+    <ClCompile Include="Universe\Objects\Object.cpp">
+      <Filter>Universe\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Math.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -151,6 +157,12 @@
     </ClInclude>
     <ClInclude Include="Graphics\DirectX\RenderingContextDX12.h">
       <Filter>Graphics\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="Universe\Objects\Object.h">
+      <Filter>Universe\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Math.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
